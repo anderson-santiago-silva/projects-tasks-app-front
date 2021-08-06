@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router'; // Receita de bolo. Faz parte da configuração do React Router
 
-function App() {
+import Login from './pages/Login';
+import ProjectsList from './pages/ProjectsList';
+import ProjectDetail from './pages/ProjectDetail';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/projects" component={ProjectsList} />
+      <Route exact path="/projects/:id" component={ProjectDetail} />
+    </Switch>
   );
 }
 
